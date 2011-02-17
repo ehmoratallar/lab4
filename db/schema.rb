@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217164123) do
+ActiveRecord::Schema.define(:version => 20110217220923) do
+
+  create_table "clients", :force => true do |t|
+    t.text     "name"
+    t.text     "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "nit"
+  end
 
   create_table "courses", :force => true do |t|
     t.text     "name"
@@ -26,6 +34,24 @@ ActiveRecord::Schema.define(:version => 20110217164123) do
     t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.text     "code"
+    t.date     "date"
+    t.integer  "client_id"
+    t.float    "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "productos", :force => true do |t|
+    t.text     "code"
+    t.float    "price"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "order_id"
   end
 
   create_table "students", :force => true do |t|
